@@ -1,0 +1,172 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Шаг в математику | Жюри</title>
+  <meta name="description" content='Члены жюри регионального математического турнира "Шаг в математику"'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+<link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link href="https://myfonts.ru/myfonts?fonts=golos-text" rel="stylesheet" type="text/css" />
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+  <style>
+    h2 {
+      margin-left: 3px;
+    }
+    .photo-social {
+      width: 160px;
+      float: left;
+      text-align: center;
+    }
+    .photo {
+      width: 100px;
+      height: 100px;
+      border-radius: 52px;
+      border: 3px solid green;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+    }
+
+    .jury {
+      border-radius: 5px;
+      width: 100%;
+      display: inline-block;
+    }
+
+    .info-jury {
+      padding-left: 17px;
+    }
+
+    .contact {
+      font-size: 12px;
+      color: gray;
+    }
+
+    .cont {
+      text-decoration: none!important;
+      color: #696969;
+    }
+
+    .work {
+      text-align: justify;
+      -webkit-hyphens: auto;
+      -moz-hyphens: auto;
+      -ms-hyphens: auto;
+    }
+    @media only screen and (max-width: 800px) {
+      .info-jury {
+        padding: 10px;
+
+      }
+
+    }
+    @media only screen and (max-width: 400px) {
+      .jury{
+        width: 100%;
+      }
+      .photo-social {
+        width: 100%;
+        float: none;
+      }
+      .photo {
+        width: 200px;
+        height: 200px;
+        border-radius: 102px;
+        border: 3px solid green;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+      }
+    }
+  </style>
+</head>
+
+<body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<nav class="topnav" id="myTopnav">
+  <a href="index.html">Шаг в математику 2023</a>
+  <a href="jury.html" class="active">Жюри</a>
+  <a href="manual.html">Правила и положение</a>
+  <a href="archive.html">Архив</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</nav>
+
+<div class="back">
+<h2>Члены жюри турнира</h2>
+  <div id="root"></div>
+
+  <script type="text/babel">
+
+    function Email(props) {
+      return (
+        <p className="contact"><i className='fa fa-envelope'></i> <a className='cont' href={ "mailto:"+props.name }>{props.name}</a></p>
+      );
+    }
+
+    function VK(props) {
+      return (
+        <p className="contact"><i className="fa fa-vk"></i> <a className='cont' href={ "https://vk.com/"+props.name }>{props.name}</a></p>
+      );
+    }
+
+    function Jury(props) {
+      return (
+        <div className="jury">
+          <div className="photo-social">
+            <img className="photo" src={props.photo}/>
+            <p>{props.contact}</p>
+          </div>
+
+          <div className="info-jury">
+            <b className="jury-name">{props.name}</b>
+            <p className="work" lang="ru">{props.work}</p>
+          </div>
+        </div>
+      )
+    }
+    function MyApp() {
+      return (
+        <div>
+          <Jury name="Иванов Сергей Георгиевич (председатель жюри)" contact={Email({name: "sg_ivanov@mail.ru"})} photo="img/ivanov.png" work='Кандидат педагогических наук, доцент кафедры алгоритмической математики СПбГЭТУ «ЛЭТИ», методист Заочной математической школы.'/>
+          <Jury name="Бечина Анна Ильинична" contact={VK({name: "anna_bechina"})}  photo="img/bechina.png" work='Аспирант Мат-Мех СПбГУ, инженер-исследователь кафедры гидроаэромеханики, преподаватель центра Интеллект.'/>
+          <Jury name="Головачёв Григорий Михайлович" contact={Email({name: "ggolovachev@yandex.ru"})} photo="img/golovachev.png" work='Кандидат физико-математических наук, руководитель программ по математике: «Углубленная, олимпиадная и исследовательская математика» и «Математические идеи и методы» в центре «Интеллект», преподаватель Академической гимназии им Д. К. Фаддеева СПбГУ.'/>
+          <Jury name="Маточинская Олеся Валерьевна" contact={VK({name: "o.matochinskaya"})}  photo="img/matochinskaya.png" work='Учитель математики высшей категории; зам. директора по воспитательной работе МБОУ «Гатчинского лицей №3», член жюри муниципального этапа ВсОШ, член жюри турнира «Лига открытий» (г. Казань, 2022). Тренер команды Гатчинского района, двукратного победителя турнира «Шаг в математику».'/>
+          <Jury name="Пусев Руслан Сергеевич" contact={VK({name: "pusev"})}  photo="img/pusev.png" work='Кандидат физико-математических наук, инженер ООО «МПГ АйТи Солюшнз», преподаватель Высшей школы экономики, член жюри регионального этапа ВсОШ по математике, победитель олимпиады учителей математики Ленинградской области (2017, 2018, 2020, 2021).'/>
+       </div>
+      );
+    }
+
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    root.render(<MyApp />);
+
+  </script>
+
+<script>
+  window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+  ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async></script>
+</div>
+</body>
+
+</html>
