@@ -69,10 +69,17 @@
       border-collapse: collapse;
       margin: 10px;
     }
+    @media only screen and (max-width: 1100px) {
+      img {
+        width: 90%;
+      }
+    }
     @media only screen and (max-width: 800px) {
       img {
         width: 95%;
       }
+
+
     }
   </style>
 </head>
@@ -92,10 +99,10 @@
 <div class="back">
   <h1>Общая схема турнира</h1>
   <div style="display: flex; justify-content: space-around; flex-direction: row; width: 100%;">
-    <div><a href="#school"><img src="img/school.png"></a></div>
-    <div><a href="#municip"><img src="img/municip.png"></a></div>
-    <div><a href="#region-1"><img src="img/region-1.png"></a></div>
-    <div><a href="#region-2"><img src="img/region-2.png"></a></div>
+    <div><a href="#school"><img class="menu" src="img/school.png"></a></div>
+    <div><a href="#municip"><img class="menu" src="img/municip.png"></a></div>
+    <div><a href="#region-1"><img class="menu" src="img/region-1.png"></a></div>
+    <div><a href="#region-2"><img class="menu" src="img/region-2.png"></a></div>
   </div>
   <p>По итогам каждого этапа Математического турнира определяется команда-победитель (I место), три команды-призеры соответствующего этапа Математического турнира (II, III, IV место).</p>
   <h1 id="school">Школьный этап</h1>
