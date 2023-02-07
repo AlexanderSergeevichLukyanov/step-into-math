@@ -16,6 +16,20 @@ html {
   font-size: 1em;
   line-height: 1.4;
 }
+.tg-icon {
+  font-size: 30px;
+}
+footer{
+  text-align: center;
+  background-color: black;
+  color: white;
+  padding: 23px;
+}
+.tg {
+  color: white;
+  text-decoration: none;
+  font-size: 23px;
+}
 body {
   background-color: #d3d3d3;
   font-family: 'Golos Text', arial;
@@ -30,6 +44,9 @@ body {
   .back {
     width: 100%;
     padding: 0.1px;
+  }
+  footer {
+    padding: 15px;
   }
 }
 /*
