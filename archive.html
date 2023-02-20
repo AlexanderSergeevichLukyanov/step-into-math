@@ -86,10 +86,16 @@
       -moz-hyphens: auto;
       -ms-hyphens: auto;
     }
+    .winner {
+      width: 50%;
+    }
     @media only screen and (max-width: 800px) {
       .info-jury {
         padding: 10px;
 
+      }
+      .winner {
+        width: 95%;
       }
 
     }
@@ -127,8 +133,173 @@
 
 <div class="back">
   <h1>Победители предыдущих лет</h1>
-  <h2>2021 год</h2>
-  <h3>Премьер лига</h3>
+  <div id="root"></div>
+  <script type="text/babel">
+    function Year(props) {
+      return (
+        <div>
+          <h2>{props.year} год</h2>
+          <p><br/></p>
+          <div align="center">
+            <table>
+              <tbody>
+              {props.teams.map((el, i) => {
+                return(
+                  <tr>
+                    <td className="place">
+                      <p>{el.place} место</p>
+                    </td>
+                    <td>
+                      <p>{el.name}</p>
+                    </td>
+                  </tr>
+                );
+              })}
+              </tbody>
+            </table>
+          </div>
+          <br/>
+            <img
+              src={props.image} className="winner"/>
+              <h3>Архив задач</h3>
+              <p>*файл*</p>
+        </div>
+      )
+    }
+
+    function MyApp() {
+      let y2022 = {
+        year: 2022,
+        teams: [
+          {
+            place: "I",
+            name: "Команда «Агенты - 047» - МБОУ «Гатчинский лицей №3 им. Героя Советского Союза А.И. Перегудова»"
+          },
+          {
+            place: "II",
+            name: "Команда «Pus9vGang» - сборная Волховского района"
+          },
+          {
+            place: "III",
+            name: "Команда «Сосновоборская константа» - МБОУ «СОШ №9 им. В.И.Некрасова» г. Сосновый Бор"
+          }
+        ],
+        image: "img/winners/2022.jpg"
+      }
+      let y2021 = {
+        year: 2021,
+        teams: [
+          {
+            place: "I",
+            name: "Команда «Агенты - 047» - МБОУ «Гатчинский лицей №3 им. Героя Советского Союза А.И. Перегудова»"
+          },
+          {
+            place: "II",
+            name: "Команда «Банальщики» - МОУ «Лицей №1 г. Всеволожск»"
+          },
+          {
+            place: "III",
+            name: "Команда «Volkhov Band» - сборная Волховского района"
+          }
+        ],
+        image: "img/winners/2021.jpg"
+      }
+      let y2020 = {
+        year: 2020,
+        teams: [
+          {
+            place: "I",
+            name: "Сборная Тосненского района"
+          },
+          {
+            place: "II",
+            name: "Команда «Пифагор» - МБОУ «СОШ г. Светогорска» (Выборгский район)"
+          },
+          {
+            place: "III",
+            name: "Сборная Киришского района"
+          }
+        ],
+      }
+      let y2019 = {
+        year: 2019,
+        teams: [
+          {
+            place: "I",
+            name: "Команда «Дважды два» - МБОУ «СОШ №2 им. Героя РФ А.В.Воскресенского» г. Сосновый Бор"
+          },
+          {
+            place: "II",
+            name: "Команда «Успех» - МБОУ «Гатчинский лицей №3 им. Героя Советского Союза А.И.Перегудова»"
+          },
+          {
+            place: "II",
+            name: "Команда «Искорка» - МОУ «Лицей №1 г. Всеволожск»"
+          }
+        ],
+        image: "img/winners/2019.jpg"
+      }
+      let y2018 = {
+        year: 2018,
+        teams: [
+          {
+            place: "I",
+            name: "Команда «Успех» - МБОУ «Гатчинский лицей №3 им. Героя Советского Союза А.И.Перегудова»"
+          },
+          {
+            place: "I",
+            name: "Команда «Пифагор» - МБОУ «СОШ г.Светогорска» (Выборгский район)"
+          },
+          {
+            place: "II",
+            name: "Команда «Константа» - МБОУ «Кингисеппская СОШ №5»"
+          },
+          {
+            place: "III",
+            name: "Команда «Тупые углы» - МБОУ «Волховская СОШ №1»"
+          }
+        ],
+        image: "img/winners/2018.jpg"
+      }
+      let y2017 = {
+        year: 2017,
+        teams: [
+          {
+            place: "I",
+            name: "Команда «Крепость» - МБОУ «Шлиссельбургская СОШ №1» (Кировский район)"
+          },
+          {
+            place: "II",
+            name: "Команда «Лев» - МБОУ «СОШ №5 г. Тихвина»"
+          },
+          {
+            place: "II",
+            name: "Команда «Пифагор» - МБОУ «СОШ г. Светогорска» (Выборгский район)"
+          },
+          {
+            place: "II",
+            name: "Команда «Мыслители» - МБОУ «СОШ №9 им. В.И.Некрасова» г. Сосновый Бор"
+          }
+        ]
+      }
+      return (
+        <div>
+          {Year(y2022)}
+          {Year(y2021)}
+          {Year(y2020)}
+          {Year(y2019)}
+          {Year(y2018)}
+          {Year(y2017)}
+        </div>
+      );
+    }
+
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    root.render(<MyApp />);
+
+  </script>
+  <!--h2>2021 год</h2>
   <p><br></p>
   <div align="center">
     <table>
@@ -137,9 +308,9 @@
         <th scope="col" class="place">
           <p>I место</p>
         </th>
-        <th scope="col">
+        <td scope="col">
           <p>Команда &laquo;Агенты-047&raquo;, МБОУ &laquo;Гатчинский лицей № 3 им. героя Советского Союза А.И. Перегудова&raquo;, Гатчинский район</p>
-        </th>
+        </td>
       </tr>
       </thead>
       <tbody>
@@ -162,91 +333,10 @@
   </div>
   <br>
   <img src="https://lh4.googleusercontent.com/VrEv4viPFP9-MN7h3obLbNV9uS5zVwMCvLbyu4RIjcu7j4-0SpPuyj6eUEIz2DS3t1rn6a2x2Nrr6u5TD9vVgNKMWD6Vs5XE-VTkOvub8FGyPgwqkieVTuNT0nAEjsReoh4Z8_cZl2wKXf6Z42XTGYs">
-  <p><br></p>
-  <h3>Старт лига</h3>
-  <p><br></p>
-  <div align="center">
-    <table>
-      <tbody>
-      <tr>
-        <td class="place">
-          <p>I место</p>
-        </td>
-        <td>
-          <p>Команда &laquo;Агенты-047&raquo;, МБОУ &laquo;Гатчинский лицей № 3 им. героя Советского Союза А.И. Перегудова&raquo;, Гатчинский район</p>
-        </td>
-      </tr>
-      <tr>
-        <td class="place">
-          <p>II место</p>
-        </td>
-        <td>
-          <p>Команда &laquo;Банальщики&raquo; &nbsp;МОУ &laquo;Лицей № 1&raquo; г. Всеволожска, Всеволожский район</p>
-        </td>
-      </tr>
-      <tr>
-        <td class="place">
-          <p>III место</p>
-        </td>
-        <td><br></td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-  <p><br></p>
-  <h2>Джуниор лига</h2>
-  <p><br></p>
-  <div align="center">
-    <table>
-      <tbody>
-      <tr>
-        <td class="place">
-          <p>I место</p>
-        </td>
-        <td>
-          <p>Команда &laquo;Агенты-047&raquo;, МБОУ &laquo;Гатчинский лицей № 3 им. героя Советского Союза А.И. Перегудова&raquo;, Гатчинский район</p>
-        </td>
-      </tr>
-      <tr>
-        <td class="place">
-          <p>II место</p>
-        </td>
-        <td>
-          <p>Команда &laquo;Банальщики&raquo; &nbsp;МОУ &laquo;Лицей № 1&raquo; г. Всеволожска, Всеволожский район</p>
-        </td>
-      </tr>
-      <tr>
-        <td class="place">
-          <p>III место</p>
-        </td>
-        <td><br></td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-  <p><br></p>
-  <h2>Личные номинации</h2>
-  <ul>
-    <li>
-      <p>&nbsp;&laquo;Лучший игрок турнира&raquo; &nbsp;Хацкевич Артем&nbsp;&nbsp;МБОУ &laquo;СОШ №1&raquo; г.Волхов&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</p>
-    </li>
-    <li>
-      <p>&nbsp;&laquo; Лучший капитан команды&raquo; Редькин Алексей&nbsp;МБОУ &laquo;СОШ г. Светогорска&raquo; &nbsp; Выборгский район&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</p>
-    </li>
-    <li>
-      <p>&nbsp;&laquo;Лучший докладчик&raquo; &nbsp;Молчанов &nbsp;Матвей&nbsp;МБОУ &laquo;СОШ г. Светогорска&raquo; &nbsp; &nbsp;Выборгский район&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</p>
-    </li>
-    <li>
-      <p>&nbsp;&laquo;Лучший Оппонент&raquo; Петров Матвей&nbsp;МОУ СОШ № 3 г.Луга&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</p>
-    </li>
-    <li>
-      <p>&nbsp;&laquo;Открытие турнира&raquo; Александров Матвей&nbsp; МОУ &laquo; Гимназия&raquo; г. Кириши&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</p>
-    </li>
-  </ul>
   <h3>Архив задач</h3>
   <p>*файл*</p>
-  <p><br></p>
-  <p><br></p>
+
+
   <h2>2019 год</h2>
   <p><br></p>
   <div align="center">
@@ -314,13 +404,12 @@
     <li>2019 год - Команда «Успех», МБОУ «Гатчинский лицей №3 им. героя Советского Союза А.И. Перегудова» - Гатчинский район</li>
     <li>2018 год - Команда «Успех», МБОУ «Гатчинский лицей №3 им. героя Советского Союза А.И. Перегудова» - Гатчинский район</li>
     <li>2017 год - Команда МБОУ СОШ №1 г. Шлиссельбурга</li>
-  </ul>
+  </ul-->
   <script>
     window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
     ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
   </script>
   <script src="https://www.google-analytics.com/analytics.js" async></script>
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </div>
 <footer>
   <p class="tg-icon"><i class="fa fa-telegram" aria-hidden="true"></i> <a class="tg" href="https://t.me/math_lenobl">@math_lenobl</a></p>
